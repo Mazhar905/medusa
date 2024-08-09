@@ -36,7 +36,7 @@ export default async function Home({ params: { countryCode } }) {
   const { product_categories, count } = await getCategoriesList(0, 8)
 
   const region = await getRegion(countryCode)
-
+  // const catGrids = process.env.CAT_GRIDS
   // if (!collections || !region) {
   if (!region) {
     return null
@@ -98,8 +98,8 @@ export default async function Home({ params: { countryCode } }) {
           </div>
         </div>
       </div>
-      <CategoryGrid title="Weekly Deals" limit={8} region={region} />
-      <CategoryGrid title="Best Sellers" limit={8} region={region} />
+      <CategoryGrid title="Weekly Deals" limit={8} region={countryCode} />
+      <CategoryGrid title="Best Sellers" limit={8} region={countryCode} />
       <WhyChose title="Why Chose Egala Spot" />
       <div className="mx-auto px-4 py-8 bg-gray-200">
         <div className="container">
