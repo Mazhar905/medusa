@@ -31,7 +31,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/modules/layout/templates/nav/index.jsx", "src/app/[countryCode]/(main)/page.jsx"  ],
+, "src/modules/layout/templates/nav/index.jsx", "src/app/[countryCode]/(main)/page.jsx", "src/modules/products/components/product-tabs/index.jsx"  ],
   "exclude": [
     "node_modules",
     ".next",

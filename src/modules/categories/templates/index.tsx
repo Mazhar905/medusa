@@ -32,10 +32,6 @@ export default async function CategoryTemplate({
   // const category = categories[categories.length - 1]
   // const parents = categories.slice(0, categories.length - 1)
   if (!category || !countryCode) return null
-  console.log("category ID:", category.id)
-  console.log("category Name:", categoryName)
-  console.log("category Name:", category.name)
-
   return (
     <div
       className="flex flex-col small:items-start py-6 content-container"

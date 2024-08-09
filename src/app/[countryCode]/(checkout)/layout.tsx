@@ -1,3 +1,4 @@
+import { Text } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ChevronDown from "@modules/common/icons/chevron-down"
 import MedusaCTA from "@modules/layout/components/medusa-cta"
@@ -29,14 +30,17 @@ export default function CheckoutLayout({
             className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
             data-testid="store-link"
           >
-            Medusa Store
+            EgalaSpot
           </LocalizedClientLink>
           <div className="flex-1 basis-0" />
         </nav>
       </div>
       <div className="relative" data-testid="checkout-container">{children}</div>
       <div className="py-4 w-full flex items-center justify-center">
-        <MedusaCTA />
+      <Text className="txt-compact-small">
+            © {new Date().getFullYear()} EgalaSpot. All rights reserved.
+          </Text>
+        {/* <MedusaCTA /> */}
       </div>
     </div>
   )
