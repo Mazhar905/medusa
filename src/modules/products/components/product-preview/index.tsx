@@ -1,5 +1,4 @@
 import { Text } from "@medusajs/ui"
-
 import { ProductPreviewType } from "types/global"
 import { Rating } from "react-simple-star-rating"
 import { retrievePricedProductById } from "@lib/data"
@@ -43,7 +42,7 @@ export default async function ProductPreview({
       <Link href={`/products/${productPreview.handle}`}>
         <Thumbnail
           thumbnail={productPreview.thumbnail}
-          size="square"
+          size="fill"
           isFeatured={isFeatured}
         />
       </Link>
@@ -61,7 +60,6 @@ export default async function ProductPreview({
         <div className="flex justify-start gap-x-2">
           {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
         </div>
-        <Rating initialValue={5} readonly={true} />
       </div>
 
       <div className="px-2 pb-3 mt-2">

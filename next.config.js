@@ -21,11 +21,16 @@ const nextConfig = withStoreConfig({
         protocol: "https",
         hostname: "medusa-server-testing.s3.amazonaws.com",
       },
-      {
+        {
         protocol: "https",
         hostname: "medusa-server-testing.s3.us-east-1.amazonaws.com",
       },
-    ],
+     {
+        protocol: "https",
+        hostname: "www.alphabroder.com",
+        pathname: "/media/hires/", // Optionally, you can specify a pathname pattern
+      },
+   ],
   },
 })
 

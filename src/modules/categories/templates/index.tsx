@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation"
-import { Suspense } from "react"
-
+import { Suspense } from "react";
 import { ProductCategoryWithChildren } from "types/global"
 import InteractiveLink from "@modules/common/components/interactive-link"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
@@ -33,7 +32,7 @@ export default async function CategoryTemplate({
   console.log("category:", category)
   // const category = categories[categories.length - 1]
   // const parents = categories.slice(0, categories.length - 1)
-  if (!category || !countryCode ) return null
+  if (!category || !countryCode) return null
   console.log("category ID:", category.id)
 
   return (
