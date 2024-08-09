@@ -29,11 +29,12 @@ export default async function CategoryTemplate({
     (product_categories) => product_categories
   )
   const category = product_categories[0]
-  console.log("category:", category)
   // const category = categories[categories.length - 1]
   // const parents = categories.slice(0, categories.length - 1)
   if (!category || !countryCode) return null
   console.log("category ID:", category.id)
+  console.log("category Name:", categoryName)
+  console.log("category Name:", category.name)
 
   return (
     <div

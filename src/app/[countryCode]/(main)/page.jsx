@@ -31,14 +31,14 @@ export const metadata = {
   title: "EgalaSpot",
   description: "A ecommerce sotre.",
 }
- 
+
 export default async function Home({ params: { countryCode } }) {
   const { product_categories, count } = await getCategoriesList(0, 8)
 
   const region = await getRegion(countryCode)
 
   // if (!collections || !region) {
-    if (!region) {
+  if (!region) {
     return null
   }
   const brands = [
@@ -75,7 +75,7 @@ export default async function Home({ params: { countryCode } }) {
           <FeaturedProducts collections={collections} region={region} />
         </ul>
       </div> */}
-      <CategoryGrid title="Latest Products" limit={8} region={region} />
+      <CategoryGrid title="Latest Products" limit={8} region={countryCode} />
       <div className="py-8 bg-gray-200">
         <div className="container mx-auto px-4">
           <h2 className="text-center text-3xl font-light tracking-wider hover:underline mb-8">
@@ -100,6 +100,7 @@ export default async function Home({ params: { countryCode } }) {
       </div>
       <CategoryGrid title="Weekly Deals" limit={8} region={region} />
       <CategoryGrid title="Best Sellers" limit={8} region={region} />
+      <WhyChose title="Why Chose Egala Spot" />
       <div className="mx-auto px-4 py-8 bg-gray-200">
         <div className="container">
           <h2 className="text-center text-3xl font-light tracking-wider hover:underline mb-8">
@@ -141,7 +142,7 @@ function CategoryGrid({ title, region, limit }) {
         </h2>
         <CategoryTemplate
           sortBy={""}
-          page={""}
+          page={0}
           limit={limit}
           countryCode={region}
           categoryName={handle}
@@ -153,9 +154,9 @@ function CategoryGrid({ title, region, limit }) {
 
 function WhyChose({ title }) {
   return (
-    <div className="py-8 container mx-auto px-4">
-      <div className="flex flex-row md:flex-col items-start justify-start">
-        <div className="flex flex-row justify-start gap-y-5 items-start">
+    <div className="py-16 container mx-auto px-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-start">
+        <div className="flex flex-col justify-start gap-y-5 items-start p-5">
           <h2 className="text-center text-3xl font-light tracking-wider hover:underline mb-8">
             {title}
           </h2>
@@ -167,7 +168,25 @@ function WhyChose({ title }) {
             clients. For us, the client is considered as part our family and
             that's very important.
           </Text>
-          <div className="flex flex-row items-center justify-between border-2 border-red-500 rounded border- p-4">
+          <div className="flex flex-row items-center justify-between border-2 border-red-500 rounded border- p-4 w-[80%]">
+            <div className="">
+              <h6>Same Day Shippign</h6>
+              <Text>On orders placed before 01:00pm</Text>
+            </div>
+            <div>
+              <FaShippingFast size={32} />
+            </div>
+          </div>
+          <div className="flex flex-row items-center justify-between border-2 border-red-500 rounded border- p-4 w-[80%]">
+            <div className="">
+              <h6>Same Day Shippign</h6>
+              <Text>On orders placed before 01:00pm</Text>
+            </div>
+            <div>
+              <FaShippingFast size={32} />
+            </div>
+          </div>{" "}
+          <div className="flex flex-row items-center justify-between border-2 border-red-500 rounded border- p-4 w-[80%]">
             <div className="">
               <h6>Same Day Shippign</h6>
               <Text>On orders placed before 01:00pm</Text>
@@ -177,7 +196,7 @@ function WhyChose({ title }) {
             </div>
           </div>
         </div>
-        <div className="flex flex-row items-start justify-between">
+        <div className="flex flex-col items-start justify-between gap-5 p-5">
           <Image src={cusImage} alt="why"></Image>
           <Image src={screenImage} alt="why"></Image>
         </div>
