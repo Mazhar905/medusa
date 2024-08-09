@@ -42,7 +42,7 @@ export default async function ProductPreview({
       <Link href={`/products/${productPreview.handle}`}>
         <Thumbnail
           thumbnail={productPreview.thumbnail}
-          size="fill"
+          size="full"
           isFeatured={isFeatured}
         />
       </Link>
