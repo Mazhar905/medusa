@@ -1,5 +1,4 @@
 import { Text, Select, clx } from "@medusajs/ui"
-import React from "react"
 
 const FilterDropdown = ({
   title,

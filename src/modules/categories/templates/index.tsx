@@ -32,7 +32,7 @@ export default async function CategoryTemplate({
   const category = product_categories[0]
   // const category = categories[categories.length - 1]
   // const parents = categories.slice(0, categories.length - 1)
-  if (sortBy && (!countryCode || !category)) notFound()
+  if (!countryCode || !category) return null
 
   return (
     <div
