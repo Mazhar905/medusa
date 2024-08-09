@@ -74,12 +74,12 @@ export default async function Nav() {
               >
                 <CartButton />
               </Suspense>
-              <SideMenu regions={regions} />
-            </div>
-            {/* <div className="flex-1 md:hidden basis-0 h-full flex items-center">
-              <div className="h-full">
+              <div className="flex-1 md:hidden basis-0 h-full flex items-center">
+                <div className="h-full">
+                  <SideMenu regions={regions} />
+                </div>
               </div>
-            </div> */}
+            </div>
           </nav>
           <div className="hidden md:flex justify-center items-center h-[40px] w-full">
             <CategoryMenu product_categories={product_categories} />

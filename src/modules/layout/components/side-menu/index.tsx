@@ -8,6 +8,7 @@ import { Fragment } from "react"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CountrySelect from "../country-select"
+import { CiMenuFries } from "react-icons/ci"
 
 const SideMenuItems = {
   Home: "/",
@@ -28,6 +29,7 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
             <>
               <div className="relative flex h-full">
                 <Popover.Button data-testid="nav-menu-button" className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base">
+                <CiMenuFries size={24} />
                   Menu
                 </Popover.Button>
               </div>
