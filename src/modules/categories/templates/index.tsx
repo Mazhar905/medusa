@@ -34,7 +34,7 @@ export default async function CategoryTemplate({
   if (!category || !countryCode) return null
   return (
     <div
-      className="flex flex-col small:items-start py-6 content-container"
+      className="flex flex-col small:items-start py-6 px-1 md:px-3"
       data-testid="category-container"
     >
       {sortBy && (

@@ -27,8 +27,8 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
         <Popover className="h-full flex">
           {({ open, close }) => (
             <>
-              <div className="relative flex h-full">
-                <Popover.Button data-testid="nav-menu-button" className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base">
+              <div className="relative flex flex-row h-full">
+                <Popover.Button data-testid="nav-menu-button" className="relative h-full flex flex-col items-center justify-center transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base">
                 <CiMenuFries size={24} />
                   Menu
                 </Popover.Button>

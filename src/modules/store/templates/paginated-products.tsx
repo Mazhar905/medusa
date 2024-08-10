@@ -64,7 +64,7 @@ export default async function PaginatedProducts({
   const totalPages = Math.ceil(count / PRODUCT_LIMIT)
   return (
     <>
-      <ul className="grid grid-cols-2 w-full small:grid-cols-3 medium:grid-cols-4 gap-x-1 gap-y-8" data-testid="products-list">
+      <ul className="grid grid-cols-2 w-full sm:grid-cols-3 md:grid-cols-4 gap-x-1 gap-y-2 sm:gap-y-6" data-testid="products-list">
         {products.map((p) => {
           return (
             <li key={p.id}>

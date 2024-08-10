@@ -77,11 +77,11 @@ export default async function Home({ params: { countryCode } }) {
       </div> */}
       <CategoryGrid title="Latest Products" limit={8} region={countryCode} />
       <div className="py-8 bg-gray-200">
-        <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-light tracking-wider hover:underline mb-8">
+        <div className="md:mx-auto px-4">
+          <h2 className="text-center text-xl md:text-3xl font-light tracking-wider hover:underline mb-4 md:mb-8">
             Top Categories
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 md:gap-3">
             {categories.slice(0, 8).map((category) => (
               <CategoryBox
                 key={category.name}
@@ -103,7 +103,7 @@ export default async function Home({ params: { countryCode } }) {
       <WhyChose title="Why Chose Egala Spot" />
       <div className="mx-auto px-4 py-8 bg-gray-200">
         <div className="container">
-          <h2 className="text-center text-3xl font-light tracking-wider hover:underline mb-8">
+          <h2 className="text-center text-xl md:text-3xl font-light tracking-wider hover:underline mb-2 md:mb-8">
             Shop Our Top Brands
           </h2>
           <div className="flex justify-center flex-wrap items-center gap-x-5 gap-y-5">
@@ -136,8 +136,8 @@ function CategoryGrid({ title, region, limit }) {
   const handle = title.toLowerCase().replace(" ", "-")
   return (
     <div className="py-8">
-      <div className="container mx-auto px-4">
-        <h2 className="text-center text-3xl font-light tracking-wider hover:underline mb-8">
+      <div className="md:mx-auto px-1 md:px-4">
+        <h2 className="text-center text-xl md:text-3xl font-light tracking-wider hover:underline mb-4 md:mb-8">
           {title}
         </h2>
         <CategoryTemplate
@@ -154,10 +154,10 @@ function CategoryGrid({ title, region, limit }) {
 
 function WhyChose({ title }) {
   return (
-    <div className="py-16 container mx-auto px-10">
+    <div className="py-8 md:py-16 md:mx-auto px-1 md:px-10 bg-slate-100">
       <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-start">
         <div className="flex flex-col justify-start gap-y-5 items-start p-5">
-          <h2 className="text-center text-3xl font-light tracking-wider hover:underline mb-8">
+          <h2 className="text-center text-xl md:text-3xl font-light tracking-wider hover:underline mb-2 md:mb-8">
             {title}
           </h2>
           <Text>
@@ -168,28 +168,34 @@ function WhyChose({ title }) {
             clients. For us, the client is considered as part our family and
             that's very important.
           </Text>
-          <div className="flex flex-row items-center justify-between border-2 border-red-500 rounded border- p-4 w-[80%]">
+          <div className="flex flex-row items-center justify-between border-2 border-red-500 rounded border- p-4 w-[90%] md:w-[80%]">
             <div className="">
-              <h6>Same Day Shippign</h6>
-              <Text>On orders placed before 01:00pm</Text>
+              <h6 className="text-sm font-semibold">Same Day Shippign</h6>
+              <p className="text-xs font-light">
+                On orders placed before 01:00pm
+              </p>
             </div>
             <div>
               <FaShippingFast size={32} />
             </div>
           </div>
-          <div className="flex flex-row items-center justify-between border-2 border-red-500 rounded border- p-4 w-[80%]">
+          <div className="flex flex-row items-center justify-between border-2 border-red-500 rounded border- p-4 w-[90%] md:w-[80%]">
             <div className="">
-              <h6>Same Day Shippign</h6>
-              <Text>On orders placed before 01:00pm</Text>
+              <h6 className="text-sm font-semibold">Same Day Shippign</h6>
+              <p className="text-xs font-light">
+                On orders placed before 01:00pm
+              </p>
             </div>
             <div>
               <FaShippingFast size={32} />
             </div>
-          </div>{" "}
-          <div className="flex flex-row items-center justify-between border-2 border-red-500 rounded border- p-4 w-[80%]">
+          </div>
+          <div className="flex flex-row items-center justify-between border-2 border-red-500 rounded border- p-4 w-[90%] md:w-[80%]">
             <div className="">
-              <h6>Same Day Shippign</h6>
-              <Text>On orders placed before 01:00pm</Text>
+              <h6 className="text-sm font-semibold">Same Day Shippign</h6>
+              <p className="text-xs font-light">
+                On orders placed before 01:00pm
+              </p>
             </div>
             <div>
               <FaShippingFast size={32} />

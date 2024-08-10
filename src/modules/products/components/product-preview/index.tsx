@@ -35,7 +35,7 @@ export default async function ProductPreview({
   })
   // const rowClass = itemsPerRow ? `lg:w-[${}]` : ""
   return (
-    <div className="w-72 bg-white shadow-md border rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div className="max-w-72 bg-white shadow-md border rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
       <Link href={`/products/${productPreview.handle}`}>
         <Thumbnail
           thumbnail={productPreview.thumbnail}
@@ -59,7 +59,7 @@ export default async function ProductPreview({
         </div>
       </div>
 
-      <div className="px-2 pb-3 mt-2">
+      <div className="px-1 sm:px-2 pb-3 mt-2">
         <InteractiveLink href={`/products/${productPreview.handle}`}>
           Quick View
         </InteractiveLink>

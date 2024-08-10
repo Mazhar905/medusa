@@ -8,8 +8,8 @@ const FilterDropdown = ({
   "data-testid": dataTestId,
 }) => {
   return (
-    <div className="flex gap-x-2 items-center justify-end w-[30%]">
-      <Text className="txt-compact-small-plus text-ui-fg-muted w-[30%]">{title}</Text>
+    <div className="flex gap-x-2 items-center justify-end w-full md:w-[30%]">
+      <Text className="txt-compact-small-plus text-ui-fg-muted w-full md:w-[30%]">{title}</Text>
       <Select className="w-[50%]">
         <Select.Trigger>
           <Select.Value placeholder="Select a filter" />
