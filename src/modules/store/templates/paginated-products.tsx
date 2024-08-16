@@ -64,6 +64,7 @@ export default async function PaginatedProducts({
   const totalPages = Math.ceil(count / PRODUCT_LIMIT)
   return (
     <>
+      <div className="text-end p-0 m-0">Total Products: {count}</div>
       <ul className="grid grid-cols-2 w-full sm:grid-cols-3 md:grid-cols-4 gap-x-1 gap-y-2 sm:gap-y-6" data-testid="products-list">
         {products.map((p) => {
           return (
