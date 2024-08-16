@@ -56,10 +56,9 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         <ProductTabs product={product} />
       </div>
       <div
-        className="content-container my-16 small:my-32"
+        className="content-container py-10 small:py-16 bg-slate-200"
         data-testid="related-products-container"
       >
-        Related Products section
         <Suspense fallback={<SkeletonRelatedProducts />}>
           <RelatedProducts product={product} countryCode={countryCode} />
         </Suspense>
