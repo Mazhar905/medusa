@@ -1,6 +1,5 @@
 import CategoryTemplate from "@modules/categories/templates"
-export default function CategoryGrid({ title, region, limit }) {
-    const handle = title.toLowerCase().replace(" ", "-")
+export default function CategoryGrid({ title, handle, region, limit }) {
     return (
       <div className="py-8">
         <div className="md:mx-auto px-1 md:px-4">

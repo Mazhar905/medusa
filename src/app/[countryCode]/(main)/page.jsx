@@ -22,10 +22,10 @@ export default async function Home({ params: { countryCode } }) {
   return (
     <>
       <Hero />
-      <CategoryGrid title="Latest Products" limit={8} region={countryCode} />
+      <CategoryGrid title="Latest Products" handle="t-shirts" limit={8} region={countryCode} />
       <CategoryBox product_categories={product_categories}/>
-      <CategoryGrid title="Weekly Deals" limit={8} region={countryCode} />
-      <CategoryGrid title="Best Sellers" limit={8} region={countryCode} />
+      <CategoryGrid title="Weekly Deals" handle="sweatshirts" limit={8} region={countryCode} />
+      <CategoryGrid title="Best Sellers" handle="fleece" limit={8} region={countryCode} />
       <WhyChose title="Why Chose Egala Spot" />
       <BrandsGrid/>
     </>

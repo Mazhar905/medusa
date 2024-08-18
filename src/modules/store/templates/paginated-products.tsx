@@ -1,4 +1,3 @@
-
 import { getProductsListWithSort, getRegion } from "@lib/data"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
@@ -35,9 +34,9 @@ export default async function PaginatedProducts({
   if (!region) {
     return null
   }
-
+  limit = limit || PRODUCT_LIMIT
   const queryParams: PaginatedProductsParams = {
-    limit: PRODUCT_LIMIT,
+    limit: limit,
   }
 
   if (collectionId) {
@@ -47,7 +46,7 @@ export default async function PaginatedProducts({
   if (categoryId) {
     queryParams["category_id"] = [categoryId]
   }
-
+  console.log(queryParams)
   if (productsIds) {
     queryParams["id"] = productsIds
   }
@@ -61,11 +60,18 @@ export default async function PaginatedProducts({
     countryCode,
   })
 
-  const totalPages = Math.ceil(count / PRODUCT_LIMIT)
+  const totalPages = Math.ceil(count / limit)
   return (
     <>
-      <div className="text-end p-0 m-0">Total Products: {count}</div>
-      <ul className="grid grid-cols-2 w-full sm:grid-cols-3 md:grid-cols-4 gap-x-1 gap-y-2 sm:gap-y-6" data-testid="products-list">
+      {sortBy && (
+        <div className="flex justify-end w-full text-xs text-gray-400 px-2 mb-10">
+          Total Products: {count}
+        </div>
+      )}
+      <ul
+        className="grid grid-cols-2 w-full sm:grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-2 sm:gap-y-6"
+        data-testid="products-list"
+      >
         {products.map((p) => {
           return (
             <li key={p.id}>
@@ -74,7 +80,13 @@ export default async function PaginatedProducts({
           )
         })}
       </ul>
-      {totalPages > 1 && <Pagination data-testid="product-pagination" page={page} totalPages={totalPages} />}
+      {sortBy && totalPages > 1 && (
+        <Pagination
+          data-testid="product-pagination"
+          page={page}
+          totalPages={totalPages}
+        />
+      )}
     </>
   )
 }

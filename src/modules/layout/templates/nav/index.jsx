@@ -89,10 +89,16 @@ export default async function Nav() {
     </>
   )
 }
+
 const CategoryMenu = ({ product_categories }) => {
   const parentCategories = product_categories.filter(
     (category) => category.parent_category_id === null
   )
+
+  const maxVisibleCategories = 8
+  const visibleCategories = parentCategories.slice(0, maxVisibleCategories)
+  const otherCategories = parentCategories.slice(maxVisibleCategories)
+
   return (
     parentCategories &&
     parentCategories.length > 0 && (
@@ -105,30 +111,66 @@ const CategoryMenu = ({ product_categories }) => {
             }
           )}
         >
-          {parentCategories.map((category) => (
+          {visibleCategories.map((category) => (
             <li key={category.id} className="relative group">
-              <LocalizedClientLink
+              <a
                 className="hover:text-ui-fg-base"
                 href={`/categories/${category.handle}`}
               >
                 {category.name}
-              </LocalizedClientLink>
+              </a>
               {category.category_children.length > 0 && (
                 <ul className="absolute left-0 top-full mt-1 hidden group-hover:block bg-white border border-gray-200 shadow-lg rounded-md z-10">
                   {category.category_children.map((child) => (
                     <li key={child.id} className="px-4 py-2 hover:bg-gray-100">
-                      <LocalizedClientLink
+                      <a
                         className="block w-full text-left"
                         href={`/categories/${child.handle}`}
                       >
                         {child.name}
-                      </LocalizedClientLink>
+                      </a>
                     </li>
                   ))}
                 </ul>
               )}
             </li>
           ))}
+          {otherCategories.length > 0 && (
+            <li className="relative group">
+              <span className="cursor-pointer hover:text-ui-fg-base">
+                Other
+              </span>
+              <ul className="absolute left-0 top-full mt-1 hidden group-hover:block bg-white border border-gray-200 shadow-lg rounded-md z-10">
+                {otherCategories.map((category) => (
+                  <li key={category.id} className="px-4 py-2 hover:bg-gray-100">
+                    <a
+                      className="block w-full text-left"
+                      href={`/categories/${category.handle}`}
+                    >
+                      {category.name}
+                    </a>
+                    {category.category_children.length > 0 && (
+                      <ul className="absolute left-full top-0 mt-1 hidden group-hover:block bg-white border border-gray-200 shadow-lg rounded-md z-10">
+                        {category.category_children.map((child) => (
+                          <li
+                            key={child.id}
+                            className="px-4 py-2 hover:bg-gray-100"
+                          >
+                            <a
+                              className="block w-full text-left"
+                              href={`/categories/${child.handle}`}
+                            >
+                              {child.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          )}
         </ul>
       </div>
     )
