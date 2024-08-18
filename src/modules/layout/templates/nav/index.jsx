@@ -17,7 +17,7 @@ export default async function Nav() {
   return (
     <>
       <Topbar />
-      <div className="sticky top-0 inset-x-0 z-50 group">
+      <div className="sticky top-0 inset-x-0 z-50">
         <header className="flex flex-col items-center mx-auto border-b duration-200 bg-white border-ui-border-base">
           <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-[60px] text-small-regular">
             <div className="flex items-center h-full">
@@ -112,7 +112,7 @@ const CategoryMenu = ({ product_categories }) => {
           )}
         >
           {visibleCategories.map((category) => (
-            <li key={category.id} className="relative group">
+            <li key={category.id} className="relative">
               <a
                 className="hover:text-ui-fg-base"
                 href={`/categories/${category.handle}`}
@@ -140,9 +140,13 @@ const CategoryMenu = ({ product_categories }) => {
               <span className="cursor-pointer hover:text-ui-fg-base">
                 Other
               </span>
+              {/* Ensure that this dropdown only shows on hover over "Other" */}
               <ul className="absolute left-0 top-full mt-1 hidden group-hover:block bg-white border border-gray-200 shadow-lg rounded-md z-10">
                 {otherCategories.map((category) => (
-                  <li key={category.id} className="px-4 py-2 hover:bg-gray-100">
+                  <li
+                    key={category.id}
+                    className="relative px-4 py-2 hover:bg-gray-100 group"
+                  >
                     <a
                       className="block w-full text-left"
                       href={`/categories/${category.handle}`}
