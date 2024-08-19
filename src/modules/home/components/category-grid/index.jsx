@@ -1,4 +1,5 @@
 import CategoryTemplate from "@modules/categories/templates"
+import InteractiveLink from "@modules/common/components/interactive-link"
 export default function CategoryGrid({ title, handle, region, limit }) {
     return (
       <div className="py-8">
@@ -13,6 +14,11 @@ export default function CategoryGrid({ title, handle, region, limit }) {
             countryCode={region}
             categoryName={handle}
           />
+        </div>
+        <div className="flex justify-center mt-8">
+          <InteractiveLink href="/category/{handle}">
+            View More
+          </InteractiveLink>
         </div>
       </div>
     )

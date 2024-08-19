@@ -10,7 +10,7 @@ export const metadata = {
 }
 
 export default async function Home({ params: { countryCode } }) {
-  const { product_categories, count } = await getCategoriesList(0, 8)
+  const { product_categories, count } = await getCategoriesList(0, 50)
 
   const region = await getRegion(countryCode)
   // const catGrids = process.env.CAT_GRIDS

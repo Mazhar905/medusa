@@ -55,7 +55,6 @@ export default async function PaginatedProducts({
   if (categoryId) {
     queryParams["category_id"] = [categoryId]
   }
-  console.log(queryParams)
   if (productsIds) {
     queryParams["id"] = productsIds
   }
@@ -76,7 +75,7 @@ export default async function PaginatedProducts({
           Total Products: {count}
         </div>
       )}
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center w-full">
         {/* {sortBy && (
           <SidebarFilter
           categories={product_categories}

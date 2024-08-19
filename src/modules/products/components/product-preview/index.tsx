@@ -38,10 +38,9 @@ export default async function ProductPreview({
   const totalReviews = (min: number, max: number) =>
     Math.floor(Math.floor(Math.random() * (max - min + 1)) + min)
   // const rowClass = itemsPerRow ? `lg:w-[${}]` : ""
-  console.log(productPreview)
   return (
     <>
-      <div className="max-w-72 bg-white shadow-md border rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+      <div className="bg-white shadow-md border rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
         <Link href={`/products/${productPreview.handle}`}>
           <Thumbnail
             thumbnail={productPreview.thumbnail}
@@ -51,7 +50,7 @@ export default async function ProductPreview({
         </Link>
         <div className="px-4 py-3 w-72">
           <span className="text-gray-400 mr-3 capitalize text-xs">
-            {/* {productPreview?.collection?.title} */}
+            Brand
           </span>
 
           <Link href={`/products/${productPreview.handle}`}>
@@ -65,11 +64,11 @@ export default async function ProductPreview({
           <div className="flex justify-start gap-x-2">
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           </div>
-          <RatingWidget
+          {/* <RatingWidget
             value={ratingValue(1, 5)}
             totalReviews={totalReviews(1, 10)}
             size={16}
-          />
+          /> */}
         </div>
         <div className="px-1 sm:px-2 pb-3 mt-2">
           <InteractiveLink href={`/products/${productPreview.handle}`}>

@@ -1,18 +1,18 @@
 /* eslint-disable jsx-a11y/alt-text */
 // images
-import category1 from "../../../../../public/bg-img/banner_minipage1.jpg"
-import category2 from "../../../../../public/bg-img/banner_minipage2.jpg"
-import category3 from "../../../../../public/bg-img/banner_minipage3.jpg"
-import category4 from "../../../../../public/bg-img/banner_minipage1.jpg"
-import category5 from "../../../../../public/bg-img/banner_minipage1.jpg"
-import category6 from "../../../../../public/bg-img/banner_minipage1.jpg"
-import category7 from "../../../../../public/bg-img/banner_minipage1.jpg"
-import category8 from "../../../../../public/bg-img/banner_minipage1.jpg"
+import category1 from "../../../../../public/cat_img/599308714-bags-accessories.webp"
+import category2 from "../../../../../public/cat_img/599308723-hats.webp"
+import category3 from "../../../../../public/cat_img/599308737-pants.webp"
+import category4 from "../../../../../public/cat_img/599308749-polos.webp"
+import category5 from "../../../../../public/cat_img/599308753-sweatshirts.webp"
+import category6 from "../../../../../public/cat_img/599308759-t-shirts.webp"
+import category7 from "../../../../../public/cat_img/599308765-tanks.webp"
+import category8 from "../../../../../public/cat_img/599308770-youth.webp"
 import InteractiveLink from "@modules/common/components/interactive-link"
 import Image from "next/image"
 import Link from "next/link"
 
-const CategoryBox = ({product_categories}) => {
+const CategoryBox = ({ product_categories }) => {
   const images = [
     category1,
     category2,
@@ -23,13 +23,32 @@ const CategoryBox = ({product_categories}) => {
     category7,
     category8,
   ]
+  // Retrieve and split the HOME_CAT environment variable into an array
+  const cats = process.env.HOME_CAT
+  const catList = cats.split(",")
+  // Filter the product_categories based on the catList
+  const categories = product_categories
+    .filter((category) => catList.includes(category.handle))
+    .map((category, index) => ({
+      id: category.id,
+      name: category.name,
+      link: category.handle,
+      image: images[index],
+    }))
 
-  const categories = product_categories.map((category, index) => ({
-    id: category.id,
-    name: category.name,
-    link: category.handle,
-    image: images[index],
-  }))
+  // Log the filtered categories
+  // console.log("Filtered Categories:", categories)
+  // const cats = process.env.HOME_CAT;
+  // const cat = cats.split(",");
+  // console.log(cats);
+  // console.log(cat);
+
+  // const categories = product_categories.map((category, index) => ({
+  //   id: category.id,
+  //   name: category.name,
+  //   link: category.handle,
+  //   image: images[index],
+  // }))
 
   return (
     <div className="py-8 bg-gray-200">
