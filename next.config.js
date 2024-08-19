@@ -8,11 +8,7 @@ const nextConfig = withStoreConfig({
   features: store.features,
   reactStrictMode: true,
   images: {
-    domains: [
-      "res.cloudinary.com",   // Domain for Cloudinary images
-      "www.alphabroder.com",  // Domain for images from Alphabroder
-    ],
-	  remotePatterns: [
+    remotePatterns: [
       {
         protocol: "http",
         hostname: "localhost",
@@ -25,16 +21,16 @@ const nextConfig = withStoreConfig({
         protocol: "https",
         hostname: "medusa-server-testing.s3.amazonaws.com",
       },
-        {
+      {
         protocol: "https",
         hostname: "medusa-server-testing.s3.us-east-1.amazonaws.com",
       },
-     //{
-       // protocol: "https",
-       // hostname: "www.alphabroder.com",
-       // pathname: "/media/hires/", // Optionally, you can specify a pathname pattern
-      //},
-   ],
+      {
+        protocol: "https",
+        hostname: "www.alphabroder.com",
+        pathname: "/media/hires/", // Optionally, you can specify a pathname pattern
+      },
+    ],
   },
 })
 
