@@ -5,7 +5,7 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa"
 const Topbar = () => {
   return (
     <div className="bg-gray-900 text-gray-100 block lg:block">
-      <div className="flex lg:px-10 mx-auto justify-between items-center py-2">
+      <div className="content-container flex mx-auto justify-between items-center py-2">
         <ul className="flex items-center space-x-4">
           <li className="inline-flex items-center">
             <Link className="text-xs" href="https://www.facebook.com">

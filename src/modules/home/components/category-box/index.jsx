@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 // images
-import category1 from "../../../../../public/cat_img/599308714-bags-accessories.webp"
-import category2 from "../../../../../public/cat_img/599308723-hats.webp"
-import category3 from "../../../../../public/cat_img/599308737-pants.webp"
-import category4 from "../../../../../public/cat_img/599308749-polos.webp"
-import category5 from "../../../../../public/cat_img/599308753-sweatshirts.webp"
-import category6 from "../../../../../public/cat_img/599308759-t-shirts.webp"
+import category1 from "../../../../../public/cat_img/599308753-sweatshirts.webp"
+import category2 from "../../../../../public/cat_img/599308737-pants.webp"
+import category3 from "../../../../../public/cat_img/599308714-bags-accessories.webp"
+import category4 from "../../../../../public/cat_img/599308759-t-shirts.webp"
+import category5 from "../../../../../public/cat_img/599308749-polos.webp"
+import category6 from "../../../../../public/cat_img/599308723-hats.webp"
 import category7 from "../../../../../public/cat_img/599308765-tanks.webp"
 import category8 from "../../../../../public/cat_img/599308770-youth.webp"
 import InteractiveLink from "@modules/common/components/interactive-link"
@@ -52,7 +52,7 @@ const CategoryBox = ({ product_categories }) => {
 
   return (
     <div className="py-8 bg-gray-200">
-      <div className="md:mx-auto px-4">
+      <div className="content-container md:mx-auto">
         <h2 className="text-center text-xl md:text-3xl font-light tracking-wider hover:underline mb-4 md:mb-8">
           Top Categories
         </h2>

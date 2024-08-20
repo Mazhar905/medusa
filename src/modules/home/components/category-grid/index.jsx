@@ -3,7 +3,7 @@ import InteractiveLink from "@modules/common/components/interactive-link"
 export default function CategoryGrid({ title, handle, region, limit }) {
     return (
       <div className="py-8">
-        <div className="md:mx-auto px-1 md:px-4">
+        <div className="content-container md:mx-auto">
           <h2 className="text-center text-xl md:text-3xl font-light tracking-wider hover:underline mb-4 md:mb-8">
             {title}
           </h2>

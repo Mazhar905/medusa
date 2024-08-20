@@ -8,7 +8,7 @@ import Image from "next/image"
 export default function WhyChose({ title }) {
   return (
     <div className="py-8 md:py-16 md:mx-auto px-1 md:px-10 bg-slate-100">
-      <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-start">
+      <div className="content-container grid grid-cols-1 md:grid-cols-2 items-start justify-start">
         <div className="flex flex-col justify-start gap-y-5 items-start p-5">
           <h2 className="text-center text-xl md:text-3xl font-light tracking-wider hover:underline mb-2 md:mb-8">
             {title}
@@ -56,7 +56,7 @@ export default function WhyChose({ title }) {
         </div>
         <div className="flex flex-col items-start justify-between gap-5 p-5">
           <Image src={cusImage} alt="why" />
-          <Image src={screenImage} alt="why" />s
+          <Image src={screenImage} alt="why" />
         </div>
       </div>
     </div>

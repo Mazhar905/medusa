@@ -19,11 +19,11 @@ export default function BrandsGrid() {
   ]
   return (
     <div className="mx-auto px-4 py-8 bg-gray-200">
-      <div className="container">
+      <div className="content-container">
         <h2 className="text-center text-xl md:text-3xl font-light tracking-wider hover:underline mb-2 md:mb-8">
           Shop Our Top Brands
         </h2>
-        <div className="flex justify-center flex-wrap items-center gap-x-5 gap-y-5">
+        <div className="grid grid-cols-3 md:grid-cols-6 justify-center flex-wrap items-center gap-x-5 gap-y-5">
           {brands.map((brand) => (
             <InteractiveLink
               key={brand.name}
@@ -33,13 +33,13 @@ export default function BrandsGrid() {
               <Image
                 src={brand.image}
                 alt={brand.name}
-                className="rounded-full max-w-[150px] min-w-[150px] mx-auto mb-2"
+                className="rounded-full max-w-[100px] min-w-[100px] mx-auto mb-2"
                 width={150}
                 height={150}
               />
-              <h2 className="text-center text-xl font-light tracking-wider hover:underline uppercase">
+              <h4 className="text-center text-sm font-light tracking-wider hover:underline uppercase">
                 {brand.name}
-              </h2>
+              </h4>
             </InteractiveLink>
           ))}
         </div>

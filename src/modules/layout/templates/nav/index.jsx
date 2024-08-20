@@ -81,7 +81,7 @@ export default async function Nav() {
               </div>
             </div>
           </nav>
-          <div className="hidden md:flex justify-center items-center h-[40px] w-full">
+          <div className="content-container hidden md:flex justify-center items-center h-[40px] w-full">
             <CategoryMenu product_categories={product_categories} />
           </div>
         </header>

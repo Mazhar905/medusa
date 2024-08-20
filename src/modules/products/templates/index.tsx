@@ -5,7 +5,7 @@ import React, { Suspense } from "react"
 import ImageGallery from "@modules/products/components/image-gallery"
 import ProductActions from "@modules/products/components/product-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
-import ProductTabs from "@modules/products/components/product-tabs"
+import ProductAccordion from "@modules/products/components/product-accordion"
 import RelatedProducts from "@modules/products/components/related-products"
 import ProductInfo from "@modules/products/templates/product-info"
 import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-related-products"
@@ -52,11 +52,12 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           </Suspense>
         </div>
       </div>
-      <div className="flex flex-row">
-        <ProductTabs product={product} />
+      <div className="content-container flex flex-row">
+        {/* <ProductTabs product={product} /> */}
+        <ProductAccordion product={product} />
       </div>
       <div
-        className="content-container py-10 small:py-16 bg-slate-200"
+        className="py-10 small:py-16 bg-slate-200"
         data-testid="related-products-container"
       >
         <Suspense fallback={<SkeletonRelatedProducts />}>

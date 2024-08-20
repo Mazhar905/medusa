@@ -61,7 +61,7 @@ export default async function RelatedProducts({
   }
 
   return (
-    <div className="product-page-constraint">
+    <div className="content-container product-page-constraint">
       <div className="flex flex-col items-center text-center mb-8">
         <span className="text-base-regular text-gray-600 mb-6">
           Related products
@@ -71,7 +71,7 @@ export default async function RelatedProducts({
         </p>
       </div>
 
-      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-1 gap-y-2">
+      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-2">
         {productPreviews.slice(0,4).map((productPreview) => (
           <li key={productPreview.id}>
             <ProductPreview region={region} productPreview={productPreview} />

@@ -64,11 +64,11 @@ export default async function ProductPreview({
           <div className="flex justify-start gap-x-2">
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           </div>
-          {/* <RatingWidget
+          <RatingWidget
             value={ratingValue(1, 5)}
             totalReviews={totalReviews(1, 10)}
             size={16}
-          /> */}
+          />
         </div>
         <div className="px-1 sm:px-2 pb-3 mt-2">
           <InteractiveLink href={`/products/${productPreview.handle}`}>

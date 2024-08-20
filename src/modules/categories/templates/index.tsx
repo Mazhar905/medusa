@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { Suspense } from "react";
+import { Suspense } from "react"
 import { ProductCategoryWithChildren } from "types/global"
 import InteractiveLink from "@modules/common/components/interactive-link"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
@@ -34,7 +34,7 @@ export default async function CategoryTemplate({
   if (!category || !countryCode) return null
   return (
     <div
-      className="flex flex-col small:items-start py-6 px-1 md:px-3"
+      className="content-container flex flex-col small:items-start py-6"
       data-testid="category-container"
     >
       {sortBy && (
