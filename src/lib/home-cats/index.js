@@ -4,7 +4,7 @@ import headwearImage from "../../../public/cat_img/headwear.png"
 import pantsImage from "../../../public/cat_img/pants.png"
 import poloImage from "../../../public/cat_img/polo.png"
 import sweatshirtsImage from "../../../public/cat_img/sweatshirts.png"
-import jacketImage from "../../../public/cat_img/jacket.png"
+import jacketImage from "../../../public/cat_img/jackets.png"
 
 export const HomeCats = [
   { name: "t-shirts", path: "/categories/t-shirts", image: tshirtsImage },

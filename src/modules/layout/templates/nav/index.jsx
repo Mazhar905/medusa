@@ -22,7 +22,7 @@ export default async function Nav() {
       <Topbar />
       <NewsletterPopup />
       <div className="sticky top-0 inset-x-0 z-50">
-        <header className="flex flex-col items-center mx-auto border-b duration-200 bg-white border-ui-border-base">
+        <header className="flex flex-col items-center mx-auto duration-200 bg-white border-ui-border-base">
           <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-[60px] text-small-regular">
             <div className="flex items-center h-full">
               <LocalizedClientLink
@@ -85,17 +85,19 @@ export default async function Nav() {
               </div>
             </div>
           </nav>
-          <div className="content-container hidden md:flex justify-center items-center h-[40px] w-full bg-[#000b1e] text-white uppercase text-bold">
-            <ul className="flex items-center space-x-8">
-              {MainMenuItems.map((x) => {
-                return (
-                  <li key={x.name} className="inline-flex items-center">
-                    <Link href={x.path}>{x.name}</Link>
-                  </li>
-                )
-              })}
-            </ul>
-            {/* <CategoryMenu product_categories={product_categories} /> */}
+          <div className="bg-[#000b1e] h-[40px] hidden md:flex justify-center items-center">
+            <div className="content-container text-white uppercase text-bold">
+              <ul className="flex items-center space-x-8">
+                {MainMenuItems.map((x) => {
+                  return (
+                    <li key={x.name} className="inline-flex items-center">
+                      <Link href={x.path}>{x.name}</Link>
+                    </li>
+                  )
+                })}
+              </ul>
+              {/* <CategoryMenu product_categories={product_categories} /> */}
+            </div>
           </div>
         </header>
       </div>
