@@ -15,7 +15,7 @@ export const HomeCats = [
   },
   { name: "polos", path: "/categories/polos", image: poloImage },
   {
-    name: "bags and accessories",
+    name: "bags & accessories",
     path: "/categories/bags and accessories",
     image: bagsImage,
   },

@@ -16,7 +16,7 @@ import Link from "next/link"
 import { MainMenuItems } from "@lib/menu-item"
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
-  const { product_categories } = await getCategoriesList(0, 100)
+  // const { product_categories } = await getCategoriesList(0, 100)
   return (
     <>
       <Topbar />
@@ -85,8 +85,8 @@ export default async function Nav() {
               </div>
             </div>
           </nav>
-          <div className="bg-[#000b1e] h-[40px] hidden md:flex justify-center items-center">
-            <div className="content-container text-white uppercase text-bold">
+          <div className="bg-[#000b1e] h-[40px] hidden md:flex justify-center items-center w-full">
+            <div className="content-container flex justify-center items-center text-white uppercase text-bold">
               <ul className="flex items-center space-x-8">
                 {MainMenuItems.map((x) => {
                   return (
