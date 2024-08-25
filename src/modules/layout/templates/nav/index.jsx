@@ -3,6 +3,7 @@ import { Suspense } from "react"
 import { getCategoriesList, listRegions } from "@lib/data"
 import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import NewsletterPopup from "@modules/common/components/newsletter-popup"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 import Topbar from "./topBar"
@@ -11,12 +12,15 @@ import { IoMdPerson } from "react-icons/io"
 import { IoCartOutline } from "react-icons/io5"
 import SearchModal from "@modules/search/templates/search-modal"
 import { CiSearch } from "react-icons/ci"
+import Link from "next/link"
+import { MainMenuItems } from "@lib/menu-item"
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
   const { product_categories } = await getCategoriesList(0, 100)
   return (
     <>
       <Topbar />
+      <NewsletterPopup />
       <div className="sticky top-0 inset-x-0 z-50">
         <header className="flex flex-col items-center mx-auto border-b duration-200 bg-white border-ui-border-base">
           <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-[60px] text-small-regular">
@@ -33,16 +37,16 @@ export default async function Nav() {
               {/* <SearchModal /> */}
             </div>
             <div className="flex items-center gap-x-6 h-full justify-end">
-              <div className="hidden small:flex flex-col items-center justify-center gap-x-6 h-full">
+              <div className="hidden small:flex flex-col items-center justify-center gap-x-6 h-full text-black hover:text-[#ff4800]">
                 <LocalizedClientLink
-                  className="hover:text-ui-fg-base"
+                  className=""
                   href="/account"
                   data-testid="nav-account-link"
                 >
                   <IoMdPerson size={24} />
                 </LocalizedClientLink>
                 <LocalizedClientLink
-                  className="hover:text-ui-fg-base"
+                  className=""
                   href="/account"
                   data-testid="nav-account-link"
                 >
@@ -51,7 +55,7 @@ export default async function Nav() {
               </div>
               {/* {process.env.NEXT_PUBLIC_FEATURE_SEARCH_ENABLED && (
                     <LocalizedClientLink
-                      className="hover:text-ui-fg-base md:hidden flex flex-col justify-center items-center"
+                      className=" md:hidden flex flex-col justify-center items-center"
                       href="/search"
                       scroll={false}
                       data-testid="nav-search-link"
@@ -63,7 +67,7 @@ export default async function Nav() {
               <Suspense
                 fallback={
                   <LocalizedClientLink
-                    className="hover:text-ui-fg-base flex gap-2"
+                    className=" flex gap-2"
                     href="/cart"
                     data-testid="nav-cart-link"
                   >
@@ -81,8 +85,17 @@ export default async function Nav() {
               </div>
             </div>
           </nav>
-          <div className="content-container hidden md:flex justify-center items-center h-[40px] w-full">
-            <CategoryMenu product_categories={product_categories} />
+          <div className="content-container hidden md:flex justify-center items-center h-[40px] w-full bg-[#000b1e] text-white uppercase text-bold">
+            <ul className="flex items-center space-x-8">
+              {MainMenuItems.map((x) => {
+                return (
+                  <li key={x.name} className="inline-flex items-center">
+                    <Link href={x.path}>{x.name}</Link>
+                  </li>
+                )
+              })}
+            </ul>
+            {/* <CategoryMenu product_categories={product_categories} /> */}
           </div>
         </header>
       </div>
