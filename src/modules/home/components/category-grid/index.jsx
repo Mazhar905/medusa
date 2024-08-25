@@ -14,9 +14,11 @@ export default function CategoryGrid({ title, handle, region, limit }) {
           countryCode={region}
           categoryName={handle}
         />
-      </div>
-      <div className="flex justify-center mt-8">
-        <InteractiveLink href="/categories/{handle}">View More</InteractiveLink>
+        <div className="flex justify-center my-6">
+          <InteractiveLink href="/categories/{handle}">
+            View More
+          </InteractiveLink>
+        </div>
       </div>
     </div>
   )

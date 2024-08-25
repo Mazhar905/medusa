@@ -36,3 +36,10 @@ export const TopMenuItems = {
   Account: "/account",
   Cart: "/cart",
 }
+
+export const FooterMenuItems = [
+  { name: "search", path: "/search" },
+  { name: "privacy policy", path: "/privacy-policy" },
+  { name: "refund policy", path: "/refund-policy" },
+  { name: "terms of service policy", path: "/terms-service" },
+]

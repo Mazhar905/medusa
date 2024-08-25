@@ -26,7 +26,7 @@ const SubscribeForm = () => {
 
   return (
     <div>
-      <p className="text-xs text-gray-600 font-normal">
+      <p className="text-xs font-normal">
         Subscribe to our newsletter and stay up to date with the latest news,
         updates, and exclusive offers. Get valuable insights. Join our community
         today!
