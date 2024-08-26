@@ -37,8 +37,8 @@ export default async function PaginatedProducts({
   limit?: number
 }) {
   const region = await getRegion(countryCode)
-  const { product_categories } = await getCategoriesList(0, 100)
-  const { collections } = await getCollectionsList(0, 100)
+  // const { product_categories } = await getCategoriesList(0, 100)
+  // const { collections } = await getCollectionsList(0, 100)
 
   if (!region) {
     return null

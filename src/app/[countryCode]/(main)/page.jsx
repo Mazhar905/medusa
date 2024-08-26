@@ -10,7 +10,7 @@ export const metadata = {
 }
 
 export default async function Home({ params: { countryCode } }) {
-  // const { product_categories, count } = await getCategoriesList(0, 50)
+  const { product_categories, count } = await getCategoriesList(0, 50)
 
   const region = await getRegion(countryCode)
   // const catGrids = process.env.CAT_GRIDS
@@ -18,16 +18,34 @@ export default async function Home({ params: { countryCode } }) {
   if (!region) {
     return null
   }
-
+  const categories = [
+    "t-shirts",
+    "sweatshirts",
+    "polos",
+    "bags-and-accessories",
+    "pants",
+    "fleece",
+    // "sports",
+  ]
   return (
     <>
       <Hero />
-      <CategoryBox/>
-      <CategoryGrid title="Latest Products" handle="t-shirts" limit={8} region={countryCode} />
-      <CategoryGrid title="Weekly Deals" handle="sweatshirts" limit={8} region={countryCode} />
-      <CategoryGrid title="Best Sellers" handle="fleece" limit={8} region={countryCode} />
+      <CategoryBox />
+      {product_categories
+        .filter((x) => categories.includes(x.handle.toLowerCase())) // Filter based on the categories array
+        .map((x) => {
+          return (
+            <CategoryGrid
+              key={x.name}
+              title={x.name}
+              handle={x.handle}
+              limit={8}
+              region={countryCode}
+            />
+          )
+        })}
       <WhyChose title="Why Chose Egala Spot" />
-      <BrandsGrid/>
+      <BrandsGrid />
     </>
   )
 }
