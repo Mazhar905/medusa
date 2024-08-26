@@ -34,7 +34,7 @@ function Box({ category }) {
           alt={category.name}
           className="object-contain w-auto"
         />
-        <div className="text-center text-sm md:text-xl font-bold px-4 py-2 capitalize">
+        <div className="text-center text-sm md:text-xl font-bold py-2 capitalize">
           <h5>{category.name}</h5>
         </div>
       </div>

@@ -37,13 +37,18 @@ export default async function Nav() {
               {/* <SearchModal /> */}
             </div>
             <div className="flex items-center gap-x-6 h-full justify-end">
-              <div className="hidden small:flex flex-col items-center justify-center gap-x-6 h-full text-black hover:text-[#ff4800]">
+              <div className="flex flex-col items-center justify-center gap-x-6 h-full text-xs md:text-base text-black hover:text-[#ff4800]">
                 <LocalizedClientLink
                   className=""
                   href="/account"
                   data-testid="nav-account-link"
                 >
-                  <IoMdPerson size={24} />
+                  <span className="block md:hidden">
+                    <IoMdPerson size={16} />
+                  </span>
+                  <span className="hidden md:block">
+                    <IoMdPerson size={24} />
+                  </span>
                 </LocalizedClientLink>
                 <LocalizedClientLink
                   className=""
@@ -71,7 +76,12 @@ export default async function Nav() {
                     href="/cart"
                     data-testid="nav-cart-link"
                   >
-                    <IoCartOutline size={24} />
+                    <span className="block md:hidden">
+                      <IoCartOutline size={16} />
+                    </span>
+                    <span className="hidden md:block">
+                      <IoCartOutline size={24} />
+                    </span>
                     Cart (0)
                   </LocalizedClientLink>
                 }

@@ -21,7 +21,7 @@ export default async function Footer() {
   return (
     <footer className="border-t border-ui-border-base w-full pt-10 bg-[#000b1e] text-white">
       <div className="content-container flex flex-col w-full">
-        <div className="grid grid-cols-4 gap-x-6 gap-y-10 items-start justify-between">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 items-start justify-between">
           <div className="flex flex-col gap-y-2">
             <LocalizedClientLink href="/" className="uppercase text-[#ff4800]">
               <h1>egala spot</h1>
@@ -125,7 +125,7 @@ export default async function Footer() {
           <FaYoutube size={24} />
           <BsTwitterX size={24} />
         </div>
-        <div className="flex flex-col md:flex-row w-full py-6 justify-between text-black-500 border-t items-center">
+        <div className="flex flex-col md:flex-row w-full py-6 justify-between text-black-500 border-t items-center gap-5">
           <Text className="txt-compact-small">
             © {new Date().getFullYear()} EgalaSpot. All rights reserved.
           </Text>

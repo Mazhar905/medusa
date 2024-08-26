@@ -2,11 +2,11 @@ import { Container } from "@medusajs/ui"
 
 const SkeletonProductPreview = () => {
   return (
-    <div className="bg-white shadow-md border rounded-xl p-4 w-72 animate-pulse">
+    <div className="bg-white shadow-md border rounded-xl p-4 animate-pulse">
       <div className="h-40 bg-gray-200 rounded-t-xl"></div>
       <div className="px-4 py-3">
-        <div className="bg-gray-200 h-4 w-16 mb-2"></div>
-        <div className="bg-gray-300 h-6 w-48 mb-3"></div>
+        <div className="bg-gray-200 h-4 mb-2"></div>
+        <div className="bg-gray-300 h-6 mb-3"></div>
         <div className="flex justify-start gap-x-2 mb-3">
           <div className="bg-gray-200 h-4 w-16"></div>
         </div>

@@ -56,7 +56,7 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
                           <li key={x.name}>
                             <LocalizedClientLink
                               href={x.path}
-                              className="text-3xl leading-10 hover:text-ui-fg-disabled"
+                              className="text-3xl leading-10 hover:text-ui-fg-disabled capitalize"
                               onClick={close}
                               data-testid={`${x.name.toLowerCase()}-link`}
                             >
@@ -86,7 +86,7 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
+                        © {new Date().getFullYear()} EgalaSpot. All rights
                         reserved.
                       </Text>
                     </div>

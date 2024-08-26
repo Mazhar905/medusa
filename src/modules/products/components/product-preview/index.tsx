@@ -48,14 +48,14 @@ export default async function ProductPreview({
             isFeatured={isFeatured}
           />
         </Link>
-        <div className="px-4 py-3 w-72">
+        <div className="p-1 md:px-4 md:py-3">
           <span className="text-gray-400 mr-3 capitalize text-xs">
             Brand
           </span>
 
           <Link href={`/products/${productPreview.handle}`}>
             <Text
-              className="text-sm font-bold text-black truncate block capitalize"
+              className="text-xs md:text-sm font-bold text-black truncate block capitalize"
               data-testid="product-title"
             >
               {productPreview.title}
