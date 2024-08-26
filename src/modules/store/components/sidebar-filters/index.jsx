@@ -1,21 +1,23 @@
 "use client"
 import React, { useState } from "react"
-
-const SidebarFilter = ({
-  categories,
-  brands,
-  // sizes,
-  // colors,
-  // onFilterChange,
-}) => {
-  // State for each filter type
+import { FaAngleDown, FaAngleRight, FaAngleUp } from "react-icons/fa"
+const SidebarFilter = ({ categories, brands, prices, sizes, colors }) => {
   const [selectedCategories, setSelectedCategories] = useState([])
   const [selectedBrands, setSelectedBrands] = useState([])
   const [priceRange, setPriceRange] = useState([0, 100])
-  const [selectedSizes, setSelectedSizes] = useState([])
-  const [selectedColors, setSelectedColors] = useState([])
+  const [openSections, setOpenSections] = useState({
+    1: true,
+    2: true,
+    3: true,
+  })
 
-  // Handle change for category checkboxes
+  const toggleSection = (key) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }))
+  }
+  console.log(openSections)
   const handleCategoryChange = (category) => {
     setSelectedCategories((prev) =>
       prev.includes(category)
@@ -24,14 +26,12 @@ const SidebarFilter = ({
     )
   }
 
-  // Handle change for brand checkboxes
   const handleBrandChange = (brand) => {
     setSelectedBrands((prev) =>
       prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]
     )
   }
 
-  // Handle change for price range slider
   const handlePriceChange = (event) => {
     const { value, name } = event.target
     setPriceRange((prev) => {
@@ -42,132 +42,77 @@ const SidebarFilter = ({
     })
   }
 
-  // Handle change for size dropdown
-  const handleSizeChange = (event) => {
-    const { value } = event.target
-    setSelectedSizes((prev) =>
-      prev.includes(value) ? prev.filter((s) => s !== value) : [...prev, value]
-    )
-  }
-
-  // Handle change for color dropdown
-  const handleColorChange = (event) => {
-    const { value } = event.target
-    setSelectedColors((prev) =>
-      prev.includes(value) ? prev.filter((c) => c !== value) : [...prev, value]
-    )
-  }
-
-  // Apply filters
   const applyFilters = () => {
-    onFilterChange({
-      categories: selectedCategories,
-      brands: selectedBrands,
-      priceRange,
-      sizes: selectedSizes,
-      colors: selectedColors,
-    })
+    // Apply filter logic here
   }
+
+  const data = [
+    {
+      key: 1,
+      title: "Categories",
+      content: (
+        <CheckBoxFilters
+          data={categories}
+          handleChange={handleCategoryChange}
+        />
+      ),
+    },
+    {
+      key: 2,
+      title: "Brands",
+      content: (
+        <CheckBoxFilters data={brands} handleChange={handleBrandChange} />
+      ),
+    },
+    // {
+    //   key: 3,
+    //   title: "Price Range",
+    //   content: (
+    //     <PriceRange
+    //       priceRange={priceRange}
+    //       handlePriceChange={handlePriceChange}
+    //     />
+    //   ),
+    // },
+    {
+      key: 4,
+      title: "Colors",
+      content: "",
+    },
+    {
+      key: 5,
+      title: "Sizes",
+      content: "",
+    },
+  ]
 
   return (
-    <div className="p-4 bg-white shadow-md rounded-md w-64">
-      {/* Category Filter */}
-      <div className="mb-4">
-        <h3 className="text-lg font-medium">Categories</h3>
-        <ul className="mt-2">
-          {categories.map((category) => (
-            <li key={category.id}>
-              <label className="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  checked={selectedCategories.includes(category.name)}
-                  onChange={() => handleCategoryChange(category.name)}
-                  className="form-checkbox"
-                />
-                <span className="ml-2">{category.name}</span>
-              </label>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Brand Filter */}
-      <div className="mb-4">
-        <h3 className="text-lg font-medium">Brands</h3>
-        <ul className="mt-2">
-          {brands.map((brand) => (
-            <li key={brand.id}>
-              <label className="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  checked={selectedBrands.includes(brand.name)}
-                  onChange={() => handleBrandChange(brand.name)}
-                  className="form-checkbox"
-                />
-                <span className="ml-2">{brand.name}</span>
-              </label>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Price Range Filter */}
-      <div className="mb-4">
-        <h3 className="text-lg font-medium">Price Range</h3>
-        <div className="flex items-center justify-between mt-2">
-          <input
-            type="number"
-            name="min"
-            value={priceRange[0]}
-            onChange={handlePriceChange}
-            className="w-20 p-1 border border-gray-300 rounded"
-          />
-          <span className="mx-2">-</span>
-          <input
-            type="number"
-            name="max"
-            value={priceRange[1]}
-            onChange={handlePriceChange}
-            className="w-20 p-1 border border-gray-300 rounded"
-          />
+    <div className="">
+      {data.map((item) => (
+        <div key={item.key} className="mb-1">
+          <div
+            className="flex justify-between items-center bg-gray-200 p-4 cursor-pointer"
+            onClick={() => toggleSection(item.key)}
+          >
+            <span>{item.title}</span>
+            <span>
+              {openSections[item.key] ? (
+                <FaAngleUp size={16} />
+              ) : (
+                <FaAngleDown size={16} />
+              )}
+            </span>
+          </div>
+          <div
+            className={`p-4 border border-gray-200 ${
+              openSections[item.key] ? "block" : "hidden"
+            }`}
+          >
+            {item.content}
+          </div>
         </div>
-      </div>
+      ))}
 
-      {/* Size Filter */}
-      {/* <div className="mb-4">
-        <h3 className="text-lg font-medium">Sizes</h3>
-        <select
-          multiple
-          value={selectedSizes}
-          onChange={handleSizeChange}
-          className="w-full p-2 border border-gray-300 rounded"
-        >
-          {sizes.map((size) => (
-            <option key={size.id} value={size.name}>
-              {size.name}
-            </option>
-          ))}
-        </select>
-      </div> */}
-
-      {/* Color Filter */}
-      {/* <div className="mb-4">
-        <h3 className="text-lg font-medium">Colors</h3>
-        <select
-          multiple
-          value={selectedColors}
-          onChange={handleColorChange}
-          className="w-full p-2 border border-gray-300 rounded"
-        >
-          {colors.map((color) => (
-            <option key={color.id} value={color.name}>
-              {color.name}
-            </option>
-          ))}
-        </select>
-      </div> */}
-
-      {/* Apply Filters Button */}
       <button
         onClick={applyFilters}
         className="w-full py-2 px-4 bg-blue-500 text-white rounded mt-4"
@@ -179,3 +124,44 @@ const SidebarFilter = ({
 }
 
 export default SidebarFilter
+
+const PriceRange = ({ priceRange, handlePriceChange }) => {
+  return (
+    <div className="flex items-center justify-between mt-2">
+      <input
+        type="number"
+        name="min"
+        value={priceRange[0]}
+        onChange={handlePriceChange}
+        className="w-20 p-1 border border-gray-300 rounded"
+      />
+      <span className="mx-2">-</span>
+      <input
+        type="number"
+        name="max"
+        value={priceRange[1]}
+        onChange={handlePriceChange}
+        className="w-20 p-1 border border-gray-300 rounded"
+      />
+    </div>
+  )
+}
+
+const CheckBoxFilters = ({ data, handleChange }) => {
+  return (
+    <ul className="mt-2">
+      {data.map((x) => (
+        <li key={x.id}>
+          <label className="inline-flex items-center">
+            <input
+              type="checkbox"
+              onChange={() => handleChange(x.name || x.title)}
+              className="form-checkbox"
+            />
+            <span className="ml-2">{x.name || x.title}</span>
+          </label>
+        </li>
+      ))}
+    </ul>
+  )
+}

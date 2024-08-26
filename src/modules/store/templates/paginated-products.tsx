@@ -37,8 +37,8 @@ export default async function PaginatedProducts({
   limit?: number
 }) {
   const region = await getRegion(countryCode)
-  // const { product_categories } = await getCategoriesList(0, 100)
-  // const { collections } = await getCollectionsList(0, 100)
+  const { product_categories } = await getCategoriesList(0, 100)
+  const { collections } = await getCollectionsList(0, 100)
 
   if (!region) {
     return null
@@ -75,35 +75,42 @@ export default async function PaginatedProducts({
           Total Products: {count}
         </div>
       )}
-      <div className="flex flex-wrap justify-center w-full">
-        {/* {sortBy && (
-          <SidebarFilter
-          categories={product_categories}
-          brands={collections}
-          // sizes={sizes}
-          // colors={colors}
-          // onFilterChange={handleFilterChange}
-          />
-        )} */}
-        <ul
-          className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-2 sm:gap-y-6"
-          data-testid="products-list"
-        >
-          {products.map((p) => {
-            return (
-              <li key={p.id}>
-                <ProductPreview productPreview={p} region={region} />
-              </li>
-            )
-          })}
-        </ul>
-        {sortBy && totalPages > 1 && (
-          <Pagination
-            data-testid="product-pagination"
-            page={page}
-            totalPages={totalPages}
-          />
-        )}
+      <div className="flex justify-start w-full gap-x-5">
+        <div className="p-4 bg-white shadow-md border rounded-md w-full h-fit">
+          <h3 className="text-center bg-blue-900 p-3 w-full mb-2 text-white font-bold">
+            Narrow Your Choice
+          </h3>
+          {sortBy && (
+            <SidebarFilter
+              categories={product_categories}
+              brands={collections}
+              sizes=""
+              colors=""
+              prices=""
+            />
+          )}
+        </div>
+        <div>
+          <ul
+            className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-2 sm:gap-y-6"
+            data-testid="products-list"
+          >
+            {products.map((p) => {
+              return (
+                <li key={p.id}>
+                  <ProductPreview productPreview={p} region={region} />
+                </li>
+              )
+            })}
+          </ul>
+          {sortBy && totalPages > 1 && (
+            <Pagination
+              data-testid="product-pagination"
+              page={page}
+              totalPages={totalPages}
+            />
+          )}
+        </div>
       </div>
     </>
   )

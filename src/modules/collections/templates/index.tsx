@@ -21,8 +21,7 @@ export default function CollectionTemplate({
   const pageNumber = page ? parseInt(page) : 1
 
   return (
-    <div 
-    className="flex flex-col small:items-start py-6 px-1 md:px-3">
+    <div className="content-container flex flex-col small:items-start py-6 px-1 md:px-3">
       {sortBy && (
         <ArchiveHeader
           title={collection.title}
