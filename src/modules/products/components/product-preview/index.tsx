@@ -40,7 +40,7 @@ export default async function ProductPreview({
   // const rowClass = itemsPerRow ? `lg:w-[${}]` : ""
   return (
     <>
-      <div className="bg-white shadow-md border rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+      <div className="bg-white shadow-md border rounded-xl duration-500 hover:scale-105 hover:shadow-xl overflow-hidden">
         <Link href={`/products/${productPreview.handle}`}>
           <Thumbnail
             thumbnail={productPreview.thumbnail}
@@ -49,9 +49,7 @@ export default async function ProductPreview({
           />
         </Link>
         <div className="p-1 md:px-4 md:py-3">
-          <span className="text-gray-400 mr-3 capitalize text-xs">
-            Brand
-          </span>
+          <span className="text-gray-400 mr-3 capitalize text-xs">Brand</span>
 
           <Link href={`/products/${productPreview.handle}`}>
             <Text

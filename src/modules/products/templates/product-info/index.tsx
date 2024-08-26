@@ -15,7 +15,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
     Math.floor(Math.floor(Math.random() * (max - min + 1)) + min)
   return (
     <div id="product-info">
-      <div className="flex flex-col lg:max-w-[500px]">
+      <div className="flex flex-col">
         {product.collection && (
           <LocalizedClientLink
             href={`/collections/${product.collection.handle}`}

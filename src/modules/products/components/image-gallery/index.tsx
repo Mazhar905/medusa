@@ -1,24 +1,25 @@
 "use client"
-import { useState } from 'react';
-import { Image as MedusaImage } from "@medusajs/medusa";
-import { Container } from "@medusajs/ui";
-import Image from "next/image";
-
+import { useState } from "react"
+import { Image as MedusaImage } from "@medusajs/medusa"
+import { Container } from "@medusajs/ui"
+import Image from "next/image"
+import InnerImageZoom from "react-inner-image-zoom"
 type ImageGalleryProps = {
-  images: MedusaImage[];
-};
+  images: MedusaImage[]
+}
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
-  const [mainImage, setMainImage] = useState<MedusaImage>(images[0]);
+  const [mainImage, setMainImage] = useState<MedusaImage>(images[0])
   console.log(images)
 
   return (
     <div className="flex flex-col items-center relative">
-      <Container
+      <div
         className="relative aspect-[29/34] w-full max-w-xl overflow-hidden bg-ui-bg-subtle mb-4"
         id={mainImage.id}
       >
-        <img src={mainImage.url} alt="Main Product Image" height={500}/>
+        {/* <img src={mainImage.url} alt="Main Product Image" height={500}/> */}
+        <InnerImageZoom src={mainImage.url} />
         {/* <Image
           src={mainImage.url}
           priority
@@ -29,12 +30,12 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
             objectFit: "cover",
           }}
         /> */}
-      </Container>
+      </div>
       <div className="flex flex-wrap justify-start gap-4">
         {images.map((image, index) => (
-          <Container
+          <div
             key={image.id}
-            className="relative aspect-[29/34] w-24 h-24 overflow-hidden bg-ui-bg-subtle cursor-pointer"
+            className="relative aspect-[29/34] w-24 h-24 overflow-hidden bg-ui-bg-subtle cursor-pointer border rounded-md"
             id={image.id}
             onClick={() => setMainImage(image)}
           >
@@ -49,11 +50,11 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                 objectFit: "cover",
               }}
             /> */}
-          </Container>
+          </div>
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ImageGallery;
+export default ImageGallery
