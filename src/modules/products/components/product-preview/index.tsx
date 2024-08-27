@@ -55,6 +55,7 @@ export default async function ProductPreview({
             <Text
               className="text-xs md:text-sm font-bold text-black truncate block capitalize"
               data-testid="product-title"
+              title={productPreview.title}
             >
               {productPreview.title}
             </Text>

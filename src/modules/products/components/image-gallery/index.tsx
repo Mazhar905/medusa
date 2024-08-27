@@ -10,8 +10,6 @@ type ImageGalleryProps = {
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
   const [mainImage, setMainImage] = useState<MedusaImage>(images[0])
-  console.log(images)
-
   return (
     <div className="flex flex-col items-center relative">
       <div

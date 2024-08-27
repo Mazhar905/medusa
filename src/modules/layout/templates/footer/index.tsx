@@ -3,6 +3,8 @@ import Image from "next/image"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import SubscribeForm from "@modules/layout/templates/footer/subscribeForm"
 import paymentImage from "../../../../../public/payment_carts.png"
+import pay2Image from "../../../../../public/payment_net_2.png"
+import pay1Image from "../../../../../public/payment_net_1.png"
 import {
   FaFacebook,
   FaInstagram,
@@ -115,16 +117,37 @@ export default async function Footer() {
               Subscribe Our Newsletter
             </span>
             <SubscribeForm />
+          </div>{" "}
+          <div className="flex flex-col gap-y-2">
+            <span className="txt-small-plus text-large-semi capitalize text-[#ff4800]">
+              social presence
+            </span>
+            <div className="flex items-center justify-start gap-x-2">
+              <FaFacebook size={24} />
+              <FaInstagram size={24} />
+              <FaPinterest size={24} />
+              <FaLinkedin size={24} />
+              <FaYoutube size={24} />
+              <BsTwitterX size={24} />
+            </div>
+            <span className="txt-small-plus text-large-semi capitalize text-[#ff4800]">
+              Shipping partners
+            </span>
+            <Image src={pay1Image} alt={"Shipping Partnres"} />
+            <span className="txt-small-plus text-large-semi capitalize text-[#ff4800]">
+              Security seals
+            </span>
+            <Image src={pay2Image} alt={"Security Seals"} />
           </div>
         </div>
-        <div className="flex items-center justify-center py-5 gap-x-5">
-          <FaFacebook size={24} />
+        {/* <div className="flex items-center justify-center py-5 gap-x-5">
+           <FaFacebook size={24} />
           <FaInstagram size={24} />
           <FaPinterest size={24} />
           <FaLinkedin size={24} />
           <FaYoutube size={24} />
           <BsTwitterX size={24} />
-        </div>
+        </div> */}
         <div className="flex flex-col md:flex-row w-full py-6 justify-between text-black-500 border-t items-center gap-5">
           <Text className="txt-compact-small">
             © {new Date().getFullYear()} EgalaSpot. All rights reserved.

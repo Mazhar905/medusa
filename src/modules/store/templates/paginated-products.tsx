@@ -76,11 +76,11 @@ export default async function PaginatedProducts({
         </div>
       )}
       <div className="flex justify-start w-full gap-x-5">
-        <div className="p-4 bg-white shadow-md border rounded-md w-full h-fit">
-          <h3 className="text-center bg-blue-900 p-3 w-full mb-2 text-white font-bold">
-            Narrow Your Choice
-          </h3>
-          {sortBy && (
+        {sortBy && (
+          <div className="p-4 bg-white shadow-md border rounded-md w-full h-fit">
+            <h3 className="text-center bg-blue-900 p-3 w-full mb-2 text-white font-bold">
+              Narrow Your Choice
+            </h3>
             <SidebarFilter
               categories={product_categories}
               brands={collections}
@@ -88,8 +88,8 @@ export default async function PaginatedProducts({
               colors=""
               prices=""
             />
-          )}
-        </div>
+          </div>
+        )}
         <div>
           <ul
             className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-2 sm:gap-y-6"

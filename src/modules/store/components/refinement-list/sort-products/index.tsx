@@ -31,7 +31,6 @@ const SortProducts = ({
 }: SortProductsProps) => {
   // const handleChange = (e: ChangeEvent<HTMLSelectElement>,  value: SortOptions) => {
   const handleChange = (value: SortOptions) => {
-    console.log("Im here is the handle button")
     // const newSortBy = e.target.value as SortOptions
     setQueryParams("sortBy", value)
   }

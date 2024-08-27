@@ -17,7 +17,6 @@ const SidebarFilter = ({ categories, brands, prices, sizes, colors }) => {
       [key]: !prev[key],
     }))
   }
-  console.log(openSections)
   const handleCategoryChange = (category) => {
     setSelectedCategories((prev) =>
       prev.includes(category)
