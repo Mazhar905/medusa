@@ -4,7 +4,8 @@ import Back from "@modules/common/icons/back"
 import FastDelivery from "@modules/common/icons/fast-delivery"
 import Refresh from "@modules/common/icons/refresh"
 import React from "react"
-import { ProgressAccordion, Text } from "@medusajs/ui"
+import { Accordion, AccordionItem } from "@nextui-org/react"
+import { Text } from "@medusajs/ui"
 
 const ProductAccordion = ({ product }) => {
   const tabs = [
@@ -21,16 +22,13 @@ const ProductAccordion = ({ product }) => {
   return (
     <div className="flex flex-col w-full mt-5">
       <div className="w-full px-4">
-        <ProgressAccordion type="single">
+        <Accordion type="single">
           {tabs.map((tab) => (
-            <ProgressAccordion.Item key={tab.label} value={tab.label}>
-              <ProgressAccordion.Header>{tab.label}</ProgressAccordion.Header>
-              <ProgressAccordion.Content>
-                {tab.component}
-              </ProgressAccordion.Content>
-            </ProgressAccordion.Item>
+            <AccordionItem key={tab.label} value={tab.label}>
+              {tab.component}
+            </AccordionItem>
           ))}
-        </ProgressAccordion>
+        </Accordion>
       </div>
     </div>
   )
