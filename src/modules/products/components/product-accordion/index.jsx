@@ -4,7 +4,14 @@ import Back from "@modules/common/icons/back"
 import FastDelivery from "@modules/common/icons/fast-delivery"
 import Refresh from "@modules/common/icons/refresh"
 import React from "react"
-import { Accordion, AccordionItem } from "@nextui-org/react"
+import {
+  Accordion,
+  AccordionItem,
+  Card,
+  CardBody,
+  Tab,
+  Tabs,
+} from "@nextui-org/react"
 import { Text } from "@medusajs/ui"
 
 const ProductAccordion = ({ product }) => {
@@ -20,17 +27,30 @@ const ProductAccordion = ({ product }) => {
     { label: "Shipping & Returns", component: <ShippingInfoTab /> },
   ]
   return (
-    <div className="flex flex-col w-full mt-5">
-      <div className="w-full px-4">
-        <Accordion type="single">
-          {tabs.map((tab) => (
-            <AccordionItem key={tab.label} value={tab.label}>
-              {tab.component}
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
+    <div className="flex w-full flex-col">
+      <Tabs disabledKeys={["music"]} aria-label="Disabled Options" radius="full" color="primary">
+        {tabs.map((tab) => (
+          <Tab key={tab.label} title={tab.label} className="">
+            <Card>
+              <CardBody className="">
+                {tab.component}
+              </CardBody>
+            </Card>
+          </Tab>
+        ))}
+      </Tabs>
     </div>
+    // <div className="flex flex-col w-full mt-5">
+    //   <div className="w-full px-4">
+    //     <Accordion type="single">
+    //       {tabs.map((tab) => (
+    //         <AccordionItem key={tab.label} title={tab.label}>
+    //           {tab.component}
+    //         </AccordionItem>
+    //       ))}
+    //     </Accordion>
+    //   </div>
+    // </div>
   )
 }
 
